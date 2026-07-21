@@ -1,3 +1,12 @@
+## [1.7.3](https://github.com/0xkuze/add-dir-opencode/compare/v1.7.2...v1.7.3) (2026-07-21)
+
+
+### Bug Fixes
+
+* compile TUI plugin to JS for npm installs ([90c50aa](https://github.com/0xkuze/add-dir-opencode/commit/90c50aac3ac3580890f297ceb8f6986631a493ff)), closes [#2](https://github.com/0xkuze/add-dir-opencode/issues/2)
+* correct repository metadata ([b50d975](https://github.com/0xkuze/add-dir-opencode/commit/b50d9750593d15ad59f384d60afb95e751b4846c))
+* harden tui package build ([d47a229](https://github.com/0xkuze/add-dir-opencode/commit/d47a2294aceddff439e297ec55ec28db52f62c09))
+
 ## [1.7.2](https://github.com/kuzeofficial/add-dir-opencode/compare/v1.7.1...v1.7.2) (2026-04-01)
 
 ## [1.7.1](https://github.com/kuzeofficial/add-dir-opencode/compare/v1.7.0...v1.7.1) (2026-04-01)
