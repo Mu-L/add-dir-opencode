@@ -13,7 +13,7 @@
       "import": "./dist/index.js"
     },
     "./tui": {
-      "import": "./dist/tui.tsx"
+      "import": "./dist/tui.js"
     }
   },
   "main": "./dist/index.js",
@@ -30,7 +30,7 @@
   "scripts": {
     "build": "rm -rf dist && bun run build:server && bun run build:tui && bun x tsc --emitDeclarationOnly",
     "build:server": "bun build ./src/index.ts --outdir ./dist --target node --format esm --external @opencode-ai/plugin --minify",
-    "build:tui": "cp ./src/tui-plugin.tsx ./dist/tui.tsx",
+    "build:tui": "bun run ./scripts/build-tui.ts",
     "deploy": "rm -rf dist && bun run build:server && bun run build:tui",
     "test": "bun test",
     "typecheck": "bun x tsc --noEmit",
