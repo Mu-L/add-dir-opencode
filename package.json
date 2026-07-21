@@ -33,7 +33,7 @@
     "build:tui": "bun run ./scripts/build-tui.ts",
     "deploy": "rm -rf dist && bun run build:server && bun run build:tui",
     "test": "bun test",
-    "typecheck": "bun x tsc --noEmit",
+    "typecheck": "bun x tsc --project tsconfig.check.json",
     "prepublishOnly": "bun run typecheck && bun test && bun run build"
   },
   "keywords": [

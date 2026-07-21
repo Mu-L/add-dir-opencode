@@ -7,7 +7,7 @@ import { AddDirPlugin } from "../src/plugin"
 import { invalidateCache, expandHome, freshDirs, isChildOf, matchesDirs } from "../src/state"
 import { extractPath, shouldGrantBeforeTool, permissionGlob, resetGrantedSessions } from "../src/permissions"
 import { collectAgentContext } from "../src/context"
-import type { PermissionEvent, ToolArgs } from "../src/types"
+import type { ToolArgs } from "../src/types"
 import type { DirEntry } from "../src/state"
 
 const TMP = join(tmpdir(), "add-dir-test")

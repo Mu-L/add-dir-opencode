@@ -1,8 +1,10 @@
-import { mkdirSync, renameSync, existsSync, rmSync } from "fs"
-import { join, basename } from "path"
+import { mkdirSync } from "fs"
+import { join } from "path"
+
 import solidPlugin from "@opentui/solid/bun-plugin"
 
 const outdir = join(import.meta.dir, "..", "dist")
+const target = join(outdir, "tui.js")
 mkdirSync(outdir, { recursive: true })
 
 const result = await Bun.build({
@@ -10,6 +12,7 @@ const result = await Bun.build({
   outdir,
   target: "bun",
   format: "esm",
+  naming: { entry: "tui.js" },
   plugins: [solidPlugin],
   external: [
     "@opencode-ai/plugin",
@@ -26,20 +29,11 @@ if (!result.success) {
   process.exit(1)
 }
 
-const emitted = result.outputs.map((o) => o.path)
-const target = join(outdir, "tui.js")
-const preferred =
-  emitted.find((p) => basename(p) === "tui.js") ??
-  emitted.find((p) => p.endsWith(".js"))
+const entries = result.outputs.filter((output) => output.kind === "entry-point")
 
-if (!preferred) {
-  console.error("TUI build produced no JS output:", emitted)
+if (entries.length !== 1 || entries[0]?.path !== target) {
+  console.error("TUI build produced an unexpected entry:", entries.map((entry) => entry.path))
   process.exit(1)
-}
-
-if (preferred !== target) {
-  if (existsSync(target)) rmSync(target)
-  renameSync(preferred, target)
 }
 
 console.log("Built", target)
