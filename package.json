@@ -45,7 +45,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kuzeofficial/add-dir-opencode.git"
+    "url": "git+https://github.com/0xkuze/add-dir-opencode.git"
   },
   "license": "MIT",
   "peerDependencies": {
